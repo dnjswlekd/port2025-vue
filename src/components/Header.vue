@@ -45,7 +45,7 @@ const toggleMobileMenu = () => {
 const isScrolled = ref(false);
 
 const handleScroll = () => {
-  if (window.scrollY > 0) {
+  if (window.scrollY > 10) {
     isScrolled.value = true;
   } else {
     isScrolled.value = false;
@@ -66,7 +66,7 @@ onBeforeUnmount(() => {
 
 #header {
   @include position-fixed;
-  z-index: 10;
+  /* z-index: 10; */
 
   &.scrolled {
     top: 0;
