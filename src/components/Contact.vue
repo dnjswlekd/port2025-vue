@@ -1,1 +1,1 @@
-<template>SkillSection</template>
+<template></template>

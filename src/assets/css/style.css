@@ -107,3 +107,18 @@ img {
   vertical-align: top;
   width: 100%;
 }
+
+body {
+  font-family: "Montserrat", "nanumSquareNeo";
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #f3ede8;
+  color: #2b2b2b;
+}
+@media (max-width: 800px) {
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
