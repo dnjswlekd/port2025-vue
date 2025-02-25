@@ -3,8 +3,11 @@
     <div class="about-inner">
       <!-- left -->
       <div class="profile">
-        <h2>About Me</h2>
-        <img src="" alt="프로필 사진" />
+        <div class="about-bg"></div>
+        <div class="profile-img">
+          <h2>About me</h2>
+          <img :src="profileImg" alt="프로필 사진" />
+        </div>
       </div>
       <!--end of left-->
 
@@ -63,9 +66,13 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import profileImg from '@/assets/images/myProfileImg.jpg';
+</script>
 
 <style lang="scss">
+@import '@/assets/scss/mixin';
+
 #about {
   width: 100%;
   height: 100vh;
@@ -75,6 +82,42 @@
     height: 100%;
     margin: 0 auto;
     position: relative;
+    display: flex;
+    justify-content: center;
+
+    .profile {
+      flex: 1;
+      position: relative;
+      .about-bg {
+        width: 700px;
+        height: 570px;
+        background-color: rgba(158, 213, 246, 0.3);
+      }
+      .profile-img {
+        position: absolute;
+        top: -47px;
+        left: 41%;
+        h2 {
+          font-size: 5rem;
+          font-weight: 500;
+          color: map-get($colors, title);
+          letter-spacing: 1px;
+        }
+        img {
+          width: 400px;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .overview {
+      li {
+        display: flex;
+        h4 {
+          width: 70px;
+        }
+      }
+    }
   }
 }
 </style>
