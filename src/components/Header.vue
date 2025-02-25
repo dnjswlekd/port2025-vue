@@ -1,5 +1,5 @@
 <template>
-  <header id="header" aria-label="로고">
+  <header id="header" aria-label="로고" :class="{ scrolled: isScrolled }">
     <div class="header-inner">
       <div class="header-logo">
         <h1>
@@ -30,13 +30,35 @@
   </header>
 </template>
 <script setup>
-import { ref } from 'vue';
+// import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { headerNav } from '@/constants/index';
 
+// 모바일 네비게이션 메뉴 토글
 const isNavVisible = ref(false);
+
 const toggleMobileMenu = () => {
   isNavVisible.value = !isNavVisible.value;
 };
+
+// 헤더 스크롤
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+  if (window.scrollY > 0) {
+    isScrolled.value = true;
+  } else {
+    isScrolled.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <style lang="scss">
@@ -46,11 +68,19 @@ const toggleMobileMenu = () => {
   @include position-fixed;
   z-index: 10;
 
+  &.scrolled {
+    top: 0;
+  }
+  @media (max-width: 800px) {
+    top: 0;
+  }
+
   .header-inner {
     @include flex-between;
-    background-color: rgba(116, 99, 99, 0.1);
-    backdrop-filter: blur(15px);
-    padding: 1rem;
+    height: 70px;
+    /* background-color: map-get($colors, mainBg); */
+    backdrop-filter: blur(3px);
+    padding: 1rem 4rem;
 
     .header-logo {
       font-size: 0.9rem;
@@ -61,7 +91,7 @@ const toggleMobileMenu = () => {
       em {
         display: block;
         font-size: 0.625rem;
-        color: map-get($colors, black200);
+        color: map-get($colors, black300);
       }
     }
 
@@ -70,8 +100,8 @@ const toggleMobileMenu = () => {
       @media (max-width: 800px) {
         position: absolute;
         top: 68px;
-        right: 0;
-        background-color: rgba(116, 99, 99, 0.1);
+        right: 45px;
+        /* background-color: map-get($colors, mainBg); */
         backdrop-filter: blur(15px);
         z-index: 10;
         min-width: 150px;
@@ -84,6 +114,13 @@ const toggleMobileMenu = () => {
         &.show {
           height: 250px;
           opacity: 1;
+        }
+
+        &.show + .header-nav-mobile span {
+          &::before,
+          &::after {
+            width: 24px;
+          }
         }
 
         ul {
@@ -105,7 +142,7 @@ const toggleMobileMenu = () => {
 
         a {
           position: relative;
-          font-size: 0.875rem;
+          font-size: 1.2rem;
           margin: 0.875rem;
           text-transform: uppercase;
           transition: all 0.35s;
@@ -113,7 +150,7 @@ const toggleMobileMenu = () => {
           &:before {
             content: '';
             position: absolute;
-            top: 20px;
+            top: 30px;
             width: 100%;
             height: 1px;
             background-color: map-get($colors, black);

@@ -1,15 +1,15 @@
 export const headerNav = [
   {
-    title: 'intro',
-    url: '#intro',
+    title: 'home',
+    url: '#home',
   },
   {
-    title: 'skill',
+    title: 'aboutme',
+    url: '#about',
+  },
+  {
+    title: 'skills',
     url: '#skill',
-  },
-  {
-    title: 'site',
-    url: '#site',
   },
   {
     title: 'portfolio',

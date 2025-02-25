@@ -6,25 +6,7 @@
 @import 'reset';
 @import 'mixin';
 
-// body {
-//   font-family: map-get($fonts, mainEng), map-get($fonts, mainKor);
-//   font-size: 16px;
-//   font-weight: 400;
-//   background-color: map-get($colors, mainBg);
-//   color: map-get($colors, black100);
-
-//   @media (max-width: 800px) {
-//     font-size: 14px;
-//     line-height: 1.4;
-//   }
-// }
-
 :root {
-  font-family: map-get($fonts, eng), map-get($fonts, kor);
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -35,6 +17,5 @@
 }
 
 body {
-  background-color: map-get($colors, bg-main);
-  color: map-get($colors, black100);
+  @include default;
 }
