@@ -68,20 +68,25 @@ const toggleMobileMenu = () => {
     .header-nav {
       /* 모바일 헤더 박스 */
       @media (max-width: 800px) {
-        display: none;
+        position: absolute;
+        top: 68px;
+        right: 0;
+        background-color: rgba(116, 99, 99, 0.1);
+        backdrop-filter: blur(15px);
+        z-index: 10;
+        min-width: 150px;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: height 0.4s ease-out, opacity 0.4s ease-out,
+          transform 0.4s ease-out;
 
         &.show {
-          display: block;
+          height: 250px;
+          opacity: 1;
         }
 
         ul {
-          position: absolute;
-          top: 68px;
-          right: 0;
-          background-color: rgba(116, 99, 99, 0.1);
-          backdrop-filter: blur(15px);
-          z-index: 10;
-          min-width: 150px;
           padding: 1.25rem 0;
 
           li {
