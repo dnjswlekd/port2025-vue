@@ -1,0 +1,38 @@
+// 📌 폰트 변수 관리 (map 사용)
+$font-family: (
+  mainEng: 'Montserrat',
+  mainKor: 'nanumSquareNeo',
+  mainNum: 'gmarket',
+);
+
+// 📌 컬러 변수 관리 (map 사용)
+$colors: (
+  mainBg: #f3ede8,
+  subBg100: #cdc0b1,
+  subBg200: #afa395,
+  subBg300: #81887c,
+  subBg400: #afa7a2,
+  subBg500: #a6afa2,
+
+  white: #fff,
+  black: #333,
+  black100: #2b2b2b,
+  black200: #434343,
+  black300: #686868,
+  black400: #e0e0e0,
+);
+
+// 📌 body 스타일에 변수 적용
+body {
+  font-family: map-get($font-family, mainEng), map-get($font-family, mainKor);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: map-get($colors, mainBg);
+  color: map-get($colors, black100);
+
+  @media (max-width: 800px) {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
