@@ -43,7 +43,7 @@ input,
 select,
 table,
 textarea {
-  font-family: map-get($font-family, mainEng), map-get($font-family, mainKor),
+  font-family: map-get($fonts, mainEng), map-get($fonts, mainKor),
     'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', helvetica, sans-serif;
 }
 

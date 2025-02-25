@@ -1,16 +1,20 @@
 <template>
   <header id="header" aria-label="로고">
     <div class="header-inner">
-      <h1 class="header-logo">
-        <a href="#">portfolio <em>vue.js</em></a>
-      </h1>
-      <nav class="header-nav" aria-label="메인 메뉴">
+      <div class="header-logo">
+        <h1>
+          <a href="#">portfolio <em>vue.js</em></a>
+        </h1>
+      </div>
+      <nav
+        class="header-nav"
+        aria-label="메인 메뉴"
+        :class="{ show: isNavVisible }"
+      >
         <ul>
-          <li><a href="intro">intro</a></li>
-          <li><a href="skill">skill</a></li>
-          <li><a href="site">site</a></li>
-          <li><a href="portfolio">portfolio</a></li>
-          <li><a href="contact">contact</a></li>
+          <li v-for="(nav, i) in headerNav" :key="i">
+            <a :href="nav.url">{{ nav.title }}</a>
+          </li>
         </ul>
       </nav>
       <button
@@ -18,13 +22,22 @@
         class="header-nav-mobile"
         aria-controls="primary-menu"
         aria-expanded="false"
+        @click="toggleMobileMenu"
       >
         <span></span>
       </button>
     </div>
   </header>
 </template>
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+import { headerNav } from '@/constants/index';
+
+const isNavVisible = ref(false);
+const toggleMobileMenu = () => {
+  isNavVisible.value = !isNavVisible.value;
+};
+</script>
 
 <style lang="scss">
 @import '@/assets/scss/mixin';
@@ -53,8 +66,13 @@
     }
 
     .header-nav {
+      /* 모바일 헤더 박스 */
       @media (max-width: 800px) {
         display: none;
+
+        &.show {
+          display: block;
+        }
 
         ul {
           position: absolute;
@@ -72,7 +90,6 @@
 
             a {
               display: inline-block;
-              padding: 0.625rem;
             }
           }
         }
@@ -86,6 +103,7 @@
           font-size: 0.875rem;
           margin: 0.875rem;
           text-transform: uppercase;
+          transition: all 0.35s;
 
           &:before {
             content: '';
@@ -98,6 +116,10 @@
             transition: all 0.35s;
           }
 
+          &:hover {
+            transform: translateX(-10px);
+          }
+
           &:hover:before {
             transform: scaleX(1);
           }
@@ -106,6 +128,8 @@
     }
     .header-nav-mobile {
       @include button-reset;
+      width: 40px;
+      height: 40px;
       display: none;
 
       @media (max-width: 800px) {

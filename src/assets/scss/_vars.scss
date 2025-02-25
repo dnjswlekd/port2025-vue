@@ -1,5 +1,5 @@
 // 📌 폰트 변수 관리 (map 사용)
-$font-family: (
+$fonts: (
   mainEng: 'Montserrat',
   mainKor: 'nanumSquareNeo',
   mainNum: 'gmarket',
@@ -21,18 +21,3 @@ $colors: (
   black300: #686868,
   black400: #e0e0e0,
 );
-
-// 📌 body 스타일에 변수 적용
-body {
-  font-family: map-get($font-family, mainEng), map-get($font-family, mainKor);
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-  background-color: map-get($colors, mainBg);
-  color: map-get($colors, black100);
-
-  @media (max-width: 800px) {
-    font-size: 14px;
-    line-height: 1.4;
-  }
-}
