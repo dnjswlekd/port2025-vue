@@ -45,11 +45,15 @@ const getImageUrl = (name) => {
   .skill-inner {
     @include flex-center;
     flex-direction: column;
-    width: 1200px;
+    /* width: 1200px; */
     height: 100%;
-    gap: 200px;
     margin: 0 auto;
     position: relative;
+    gap: 60px;
+
+    @media (max-width: 800px) {
+      gap: 20px;
+    }
 
     .develop,
     .design {
@@ -57,6 +61,9 @@ const getImageUrl = (name) => {
       h2 {
         @include title-style;
         padding-bottom: 75px;
+        @media (max-width: 800px) {
+          padding-bottom: 35px;
+        }
       }
 
       ul {
@@ -65,20 +72,27 @@ const getImageUrl = (name) => {
 
         li {
           img {
+            max-width: 100%;
             width: 150px;
-            height: 150px;
+            height: auto;
             object-fit: contain;
+            @media (max-width: 800px) {
+              width: 100px;
+              height: 100px;
+            }
           }
+        }
+        @media (max-width: 800px) {
+          width: 600px;
+          display: grid;
+          gap: 30px 10px;
+          grid-template-columns: repeat(3, 1fr);
         }
       }
     }
     .develop ul li {
-      &:nth-child(3) img {
-        width: 130px;
-        margin-inline: 15px;
-      }
       &:nth-child(4) img {
-        width: 200px;
+        width: 150px;
       }
     }
     .design ul li {

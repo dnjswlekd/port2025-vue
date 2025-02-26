@@ -28,7 +28,7 @@
   width: 100%;
   height: 100vh;
   .home-inner {
-    width: 1200px;
+    /* width: 1200px; */
     height: 100%;
     margin: 0 auto;
     position: relative;

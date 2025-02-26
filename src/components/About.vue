@@ -93,7 +93,7 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
   }
 
   .about-inner {
-    width: 1200px;
+    /* width: 1200px; */
     height: 100%;
     margin: 0 auto;
     position: relative;
@@ -102,8 +102,13 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
     align-items: center;
     justify-content: center;
 
+    @media (max-width: 800px) {
+      justify-content: center;
+      flex-flow: column;
+    }
+
     .profile {
-      flex: 1;
+      /* flex: 1; */
       position: relative;
       display: flex;
 
@@ -116,6 +121,13 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
           width: 400px;
           object-fit: contain;
         }
+        @media (max-width: 800px) {
+          transform: translate(50px, 68px);
+        }
+      }
+      @media (max-width: 800px) {
+        width: 100%;
+        height: 100%;
       }
     }
 
@@ -126,6 +138,7 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
       color: map-get($colors, black400);
       font-weight: 600;
       line-height: 1.8;
+      margin-left: 30px;
 
       li {
         display: flex;
@@ -135,6 +148,9 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
         }
         .desc {
           text-indent: -73px;
+          @media (max-width: 800px) {
+            text-indent: 0px;
+          }
         }
       }
 
