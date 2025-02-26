@@ -80,7 +80,6 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
   .about-inner {
     width: 1200px;
     height: 100%;
-    margin: 0 auto;
     position: relative;
     display: flex;
     justify-content: center;
