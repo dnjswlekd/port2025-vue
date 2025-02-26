@@ -34,20 +34,61 @@ const getImageUrl = (name) => {
 </script>
 
 <style lang="scss">
+@import '@/assets/scss/mixin';
+
 #skill {
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   .skill-inner {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-  }
-  width: 1200px;
-  height: 100%;
-  margin: 0 auto;
-  position: relative;
-  img {
-    width: 30px;
+    @include flex-center;
+    flex-direction: column;
+    width: 1200px;
+    height: 100%;
+    gap: 200px;
+    margin: 0 auto;
+    position: relative;
+
+    .develop,
+    .design {
+      text-align: center;
+      h2 {
+        @include title-style;
+        padding-bottom: 75px;
+      }
+
+      ul {
+        @include flex-center;
+        gap: 40px;
+
+        li {
+          img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+    .develop ul li {
+      &:nth-child(3) img {
+        width: 130px;
+        margin-inline: 15px;
+      }
+      &:nth-child(4) img {
+        width: 200px;
+      }
+    }
+    .design ul li {
+      &:nth-child(1) img {
+        transform: scale(1.2);
+      }
+      &:nth-child(6) img {
+        transform: scale(1.2);
+      }
+    }
   }
 }
 </style>

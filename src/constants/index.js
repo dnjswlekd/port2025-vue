@@ -22,6 +22,15 @@ export const headerNav = [
 ];
 
 export const skills = {
-  develop: ['html', 'css', 'js', 'jquery'],
-  design: ['figma', 'photoshop', 'illustrator', 'indesign'],
+  develop: ['html', 'css', 'js', 'sass', 'jquery', 'vue', 'react'],
+  design: [
+    'figma',
+    'photoshop',
+    'illustrator',
+    'indesign',
+    'notion',
+    'git',
+    'gitlab',
+    'github',
+  ],
 };

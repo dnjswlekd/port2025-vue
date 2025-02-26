@@ -38,6 +38,13 @@
   width: 100%;
 }
 
+// 스킬 타이틀
+@mixin title-style {
+  font-size: 4.4rem;
+  color: map-get($colors, title);
+  font-weight: 500;
+}
+
 // 버튼 css 초기화
 @mixin button-reset {
   all: unset; /* 기본 스타일 제거 */
