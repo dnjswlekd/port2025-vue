@@ -110,10 +110,7 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
       .profile-img {
         transform: translate(50px, -100px);
         h2 {
-          font-size: 5rem;
-          font-weight: 500;
-          color: map-get($colors, title);
-          letter-spacing: 1px;
+          @include title-style;
         }
         img {
           width: 400px;
