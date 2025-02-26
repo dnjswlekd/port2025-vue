@@ -174,7 +174,7 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
     }
   }
 
-  @include responsive(800px) {
+  @include responsive(1024px) {
     .about-inner {
       flex-flow: column;
       justify-content: center;

@@ -41,7 +41,7 @@ import { links } from '@/constants/index';
 import profileImg from '@/assets/images/myProfileImg2.jpg';
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@/assets/scss/mixin';
 
 #contact {
@@ -106,9 +106,18 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
       }
       img {
         width: 450px;
-        height: 450px;
+        max-width: 100%;
+        height: auto;
         object-fit: cover;
       }
+    }
+  }
+  @include responsive(1024px) {
+    .profile img {
+      width: 200px;
+    }
+    .contact-inner {
+      flex-direction: column-reverse;
     }
   }
 }
