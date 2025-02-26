@@ -60,7 +60,7 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
       padding: 20px 0;
       font-weight: 300;
       font-size: 30px;
-      background-color: map-get($colors, title);
+      color: map-get($colors, title);
       opacity: 0.3;
     }
 
@@ -70,9 +70,10 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
       max-width: 600px;
 
       p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         line-height: 1.6;
         text-align: center;
+        color: map-get($colors, black400);
       }
 
       .shortcut {
@@ -104,8 +105,8 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
         @include title-style;
       }
       img {
-        width: 500px;
-        height: 500px;
+        width: 450px;
+        height: 450px;
         object-fit: cover;
       }
     }
