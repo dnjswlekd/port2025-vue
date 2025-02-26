@@ -2,15 +2,17 @@
   <section id="contact">
     <div class="contact-inner">
       <div class="content">
-        <p>
-          "아름답고 화려한 디자인만을 만드는 것이 목표가 아닌,<br />
-          <strong>최적의 사용자 경험을 제공하는 것을 목표</strong>로 하는<br />
-          <strong>웹 퍼블리셔, 박원지</strong>가 되겠습니다."
-        </p>
-        <p>연락처 : wj8014@gmail.com, 010 5237 1274</p>
+        <div>
+          <p>
+            "아름답고 화려한 디자인만을 만드는 것이 목표가 아닌,<br />
+            <b>최적의 사용자 경험을 제공하는 것을 목표</b>로 하는<br />
+            <b>웹 퍼블리셔, 박원지</b>가 되겠습니다."
+          </p>
+        </div>
 
         <span></span>
 
+        <p>연락처 : wj8014@gmail.com, 010 5237 1274</p>
         <div class="shortcut">
           <a
             v-for="(link, i) in links"
@@ -44,18 +46,13 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
 
 #contact {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   .contact-inner {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    max-width: 1200px;
-    padding: 40px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    @include flex-center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    gap: 50px;
 
     span::before {
       display: block;
@@ -68,10 +65,13 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
     }
 
     .content {
+      @include flex-center;
+      flex-flow: column;
       max-width: 600px;
       p {
         font-size: 1.2rem;
         line-height: 1.6;
+        text-align: center;
       }
 
       .shortcut {
@@ -84,23 +84,15 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
           border-radius: 5px;
           text-decoration: none;
           font-size: 1rem;
-          color: #fff;
+          border: 1px solid map-get($colors, title);
+          color: map-get($colors, title);
           text-align: center;
-
-          &.notion {
-            background-color: #7c4dff;
-          }
-
-          &.git {
-            background-color: #333;
-          }
-
-          &.resume {
-            background-color: #00aaff;
-          }
+          font-weight: 600;
+          transition: 0.35s;
 
           &:hover {
-            opacity: 0.8;
+            background-color: map-get($colors, title);
+            color: map-get($colors, white);
           }
         }
       }
@@ -109,13 +101,10 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
     .profile {
       h2 {
         @include title-style;
-        font-size: 2rem;
-        margin-bottom: 20px;
       }
       img {
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
+        width: 500px;
+        height: 500px;
         object-fit: cover;
       }
     }
