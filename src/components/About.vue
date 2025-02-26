@@ -78,6 +78,8 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
 <style lang="scss">
 @import '@/assets/scss/mixin';
 
+@import '@/assets/scss/mixin';
+
 #about {
   width: 100%;
   height: 100vh;
@@ -93,7 +95,6 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
   }
 
   .about-inner {
-    /* width: 1200px; */
     height: 100%;
     margin: 0 auto;
     position: relative;
@@ -101,82 +102,103 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
     gap: 50px;
     align-items: center;
     justify-content: center;
+  }
 
-    @media (max-width: 800px) {
-      justify-content: center;
-      flex-flow: column;
-    }
+  .profile {
+    position: relative;
+    display: flex;
 
-    .profile {
-      /* flex: 1; */
-      position: relative;
-      display: flex;
+    .profile-img {
+      transform: translate(50px, -100px);
 
-      .profile-img {
-        transform: translate(50px, -100px);
-        h2 {
-          @include title-style;
-        }
-        img {
-          width: 400px;
-          object-fit: contain;
-        }
-        @media (max-width: 800px) {
-          transform: translate(50px, 68px);
-        }
+      h2 {
+        @include title-style;
       }
-      @media (max-width: 800px) {
-        width: 100%;
-        height: 100%;
+
+      img {
+        width: 400px;
+        object-fit: contain;
       }
     }
+  }
 
-    .overview {
+  .overview {
+    display: flex;
+    flex-flow: column;
+    gap: 25px;
+    color: map-get($colors, black400);
+    font-weight: 600;
+    line-height: 1.8;
+    margin-left: 30px;
+
+    li {
       display: flex;
-      flex-flow: column;
-      gap: 25px;
-      color: map-get($colors, black400);
-      font-weight: 600;
-      line-height: 1.8;
-      margin-left: 30px;
+      gap: 5px;
+
+      h4 {
+        width: 70px;
+      }
+
+      .desc {
+        text-indent: -73px;
+      }
+    }
+
+    .hash-tag ul {
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
       li {
-        display: flex;
-        gap: 5px;
-        h4 {
-          width: 70px;
-        }
-        .desc {
-          text-indent: -73px;
-          @media (max-width: 800px) {
-            text-indent: 0px;
-          }
-        }
-      }
+        padding: 0px 15px;
+        border-radius: 10px;
+        transition: 0.4s;
 
-      .hash-tag ul {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        li {
-          padding: 0px 15px;
-          border-radius: 10px;
-          transition: 0.4s;
-          a {
-            font-size: 1.4rem;
-            font-weight: 800;
-          }
-          &:hover {
-            background: map-get($colors, tagBg);
-            color: #fff;
-            border-radius: 50px;
-          }
+        a {
+          font-size: 1.4rem;
+          font-weight: 800;
         }
-        li.active {
+
+        &:hover {
           background: map-get($colors, tagBg);
           color: #fff;
           border-radius: 50px;
         }
+      }
+
+      li.active {
+        background: map-get($colors, tagBg);
+        color: #fff;
+        border-radius: 50px;
+      }
+    }
+  }
+
+  @include responsive(800px) {
+    .about-inner {
+      flex-flow: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .profile-img {
+      transform: translate(50px, 68px) !important;
+
+      img {
+        width: 300px;
+      }
+    }
+
+    .profile {
+      width: 100%;
+      height: 100%;
+    }
+
+    .overview {
+      margin-left: 0;
+
+      .desc {
+        text-indent: 0px;
       }
     }
   }

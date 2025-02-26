@@ -38,6 +38,13 @@
   width: 100%;
 }
 
+// 반응형
+@mixin responsive($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
 // 스킬 타이틀
 @mixin title-style {
   font-size: 4.4rem;
