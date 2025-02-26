@@ -20,3 +20,8 @@ export const headerNav = [
     url: '#contact',
   },
 ];
+
+export const skills = {
+  develop: ['html', 'css', 'js', 'jquery'],
+  design: ['figma', 'photoshop', 'illustrator', 'indesign'],
+};

@@ -1,33 +1,53 @@
 <template>
   <section id="skill">
-    <h2>I can do</h2>
-
-    <ul class="skill clearfix">
-      <li>GA4</li>
-      <li>TGM</li>
-      <li>HTML5</li>
-      <li>CSS3</li>
-      <li>Javscript</li>
-      <li>JQuery</li>
-      <li>RESTAPI</li>
-      <li>Json</li>
-    </ul>
-
-    <h2>and I can do too</h2>
-
-    <ul class="tool clearfix">
-      <li>Figma</li>
-      <li>Photoshop</li>
-      <li>Illustrator</li>
-      <li>Indesign</li>
-    </ul>
+    <div class="skill-inner">
+      <div class="develop">
+        <h2>I can do</h2>
+        <ul>
+          <li v-for="skill in developSkills" :key="skill">
+            <img :src="getImageUrl(skill)" :alt="skill" />
+          </li>
+        </ul>
+      </div>
+      <div class="design">
+        <h2>and I can do too</h2>
+        <ul>
+          <li v-for="skill in designSkills" :key="skill">
+            <img :src="getImageUrl(skill)" :alt="skill" />
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
   <!--end of skills-->
 </template>
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+import { skills } from '@/constants/index';
+
+const developSkills = ref(skills.develop);
+const designSkills = ref(skills.design);
+
+const getImageUrl = (name) => {
+  return new URL(`/src/assets/images/${name}-icon.png`, import.meta.url).href;
+};
+</script>
 
 <style lang="scss">
 #skill {
   height: 100vh;
+  .skill-inner {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  img {
+    width: 30px;
+  }
 }
 </style>

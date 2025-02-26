@@ -61,8 +61,8 @@
             <li class="active"><a href="#">#퍼블리싱</a></li>
             <li><a href="#">#UI/UX</a></li>
             <li><a href="#">#반응형웹</a></li>
-            <li><a href="#">#웹디자인</a></li>
-            <li><a href="#">#Vue.js</a></li>
+            <li><a href="#">#VUE</a></li>
+            <li><a href="#">#FIGMA</a></li>
           </ul>
         </div>
       </div>
