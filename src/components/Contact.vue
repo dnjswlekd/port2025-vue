@@ -60,7 +60,7 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
       padding: 20px 0;
       font-weight: 300;
       font-size: 30px;
-      color: #425a73;
+      background-color: map-get($colors, title);
       opacity: 0.3;
     }
 
@@ -68,6 +68,7 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
       @include flex-center;
       flex-flow: column;
       max-width: 600px;
+
       p {
         font-size: 1.2rem;
         line-height: 1.6;
