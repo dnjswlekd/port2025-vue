@@ -26,7 +26,7 @@
 
 #home {
   width: 100%;
-  height: 960px;
+  height: 100vh;
   .home-inner {
     width: 1200px;
     height: 100%;
