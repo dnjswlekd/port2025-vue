@@ -10,7 +10,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (max-width: 800px) {
+  @include responsive(1024px) {
     font-size: 14px;
     line-height: 1.4;
   }

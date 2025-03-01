@@ -37,23 +37,17 @@ const getImageUrl = (name) => {
 @import '@/assets/scss/mixin';
 
 #skill {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
+  height: 1400px;
+  margin: 0 auto;
 
   .skill-inner {
     @include flex-center;
     flex-direction: column;
-    /* width: 1200px; */
-    height: 100%;
     margin: 0 auto;
     position: relative;
     gap: 60px;
-
-    @media (max-width: 800px) {
-      gap: 20px;
-    }
+    padding: 40px;
 
     .develop,
     .design {
@@ -61,9 +55,6 @@ const getImageUrl = (name) => {
       h2 {
         @include title-style;
         padding-bottom: 75px;
-        @media (max-width: 800px) {
-          padding-bottom: 35px;
-        }
       }
 
       ul {
@@ -76,17 +67,7 @@ const getImageUrl = (name) => {
             width: 150px;
             height: auto;
             object-fit: contain;
-            @media (max-width: 800px) {
-              width: 100px;
-              height: 100px;
-            }
           }
-        }
-        @media (max-width: 800px) {
-          width: 600px;
-          display: grid;
-          gap: 30px 10px;
-          grid-template-columns: repeat(3, 1fr);
         }
       }
     }
@@ -102,6 +83,32 @@ const getImageUrl = (name) => {
       &:nth-child(6) img {
         transform: scale(1.2);
       }
+    }
+  }
+}
+
+@include responsive(1024px) {
+  #skill .skill-inner {
+    gap: 40px;
+  }
+
+  .develop,
+  .design {
+    h2 {
+      padding-bottom: 35px;
+    }
+
+    ul {
+      width: 400px !important;
+      flex-wrap: wrap;
+    }
+  }
+
+  .develop ul li,
+  .design ul li {
+    img {
+      width: 100px !important;
+      height: 100px !important;
     }
   }
 }

@@ -45,7 +45,7 @@
             <li>· 2020.2 - 2021.6 국회사무처 인턴</li>
             · 2023.5 ~ 2023.7 기업요구를 반영한 디지털비즈니스 웹앱(UX)디자인
             &amp; 개발자 양성과정 멘토링 활동
-            <li>· 2023.7 ~ 2025.1 E3TS UI/UX 퍼블리셔</li>
+            <li>· 2023.7 ~ 2025.1 이쓰리티에스 UI/UX 퍼블리셔</li>
           </ul>
         </div>
         <div class="certificate">
@@ -82,7 +82,7 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
 
 #about {
   width: 100%;
-  height: 100vh;
+  height: 960px;
   position: relative;
 
   .about-bg {
@@ -105,7 +105,6 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
   }
 
   .profile {
-    position: relative;
     display: flex;
 
     .profile-img {
@@ -142,6 +141,10 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
       .desc {
         text-indent: -73px;
       }
+
+      span {
+        text-wrap-mode: nowrap;
+      }
     }
 
     .hash-tag ul {
@@ -176,17 +179,22 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
 
   @include responsive(1024px) {
     .about-inner {
+      padding: 45px;
       flex-flow: column;
       justify-content: center;
       gap: 20px;
     }
 
     .profile-img {
-      transform: translate(50px, 68px) !important;
+      transform: translate(0, 0) !important;
 
       img {
-        width: 300px;
+        width: 300px !important;
       }
+    }
+
+    .about-bg {
+      width: 70%;
     }
 
     .profile {
@@ -194,11 +202,20 @@ import profileImg from '@/assets/images/myProfileImg.jpg';
       height: 100%;
     }
 
+    .hash-tag ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     .overview {
       margin-left: 0;
+      transform: translate(0, 0);
 
       .desc {
-        text-indent: 0px;
+        text-indent: 0px !important;
       }
     }
   }

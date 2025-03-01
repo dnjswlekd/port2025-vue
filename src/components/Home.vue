@@ -19,17 +19,38 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+  gsap.from('.home-main-title h1', {
+    x: -100, // 왼쪽에서 시작
+    opacity: 0,
+    duration: 1.5,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.home-main-title h1',
+      start: 'top 80%', // 화면의 80% 지점에서 애니메이션 시작
+      toggleActions: 'play none none none',
+    },
+  });
+});
+</script>
 
 <style lang="scss">
 @import '@/assets/scss/mixin';
 
 #home {
-  width: 100%;
-  height: 100vh;
+  max-width: 1200px;
+  height: 960px;
+  margin: 0 auto;
+
   .home-inner {
-    /* width: 1200px; */
-    height: 100%;
+    height: 960px;
     margin: 0 auto;
     position: relative;
   }
@@ -48,22 +69,10 @@
       right: 60px;
       transform: rotate(90deg);
     }
-
-    @media (max-width: 800px) {
-      &:nth-child(1) {
-        top: 100px;
-      }
-      &:nth-child(2) {
-        top: 130px;
-        left: 60px;
-        right: 0px;
-        transform: rotate(0deg);
-      }
-    }
   }
   .home-main-title {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 60px;
     h1 {
       color: map-get($colors, title);
@@ -77,10 +86,34 @@
       color: map-get($colors, sub-black);
       letter-spacing: -1.2px;
       font-size: 1.3rem;
-      margin-top: 24px;
+      margin-top: 50px;
       line-height: 1.6;
       padding-left: 10px;
       font-weight: 300;
+    }
+  }
+  @include responsive(1024px) {
+    .home-sub-title p {
+      &:nth-child(1) {
+        top: 100px;
+        left: 20px;
+      }
+      &:nth-child(2) {
+        top: 130px;
+        left: 20px;
+        right: 0px;
+        transform: rotate(0deg);
+      }
+    }
+    .home-main-title {
+      left: 10px;
+    }
+    .home-main-title h1 {
+      font-size: 5rem;
+    }
+    .home-main-title p {
+      width: 400px;
+      margin-top: 40px;
     }
   }
 }

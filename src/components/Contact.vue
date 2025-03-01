@@ -45,12 +45,12 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
 @import '@/assets/scss/mixin';
 
 #contact {
-  height: 100vh;
+  @include flex-center;
+  height: 860px;
 
   .contact-inner {
     @include flex-center;
     width: 100%;
-    height: 100vh;
     position: relative;
     gap: 50px;
 
@@ -91,6 +91,7 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
           text-align: center;
           font-weight: 600;
           transition: 0.35s;
+          text-wrap: balance;
 
           &:hover {
             background-color: map-get($colors, title);
@@ -114,10 +115,11 @@ import profileImg from '@/assets/images/myProfileImg2.jpg';
   }
   @include responsive(1024px) {
     .profile img {
-      width: 200px;
+      width: 300px !important;
     }
     .contact-inner {
       flex-direction: column-reverse;
+      padding: 20px;
     }
   }
 }
