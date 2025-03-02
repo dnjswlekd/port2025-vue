@@ -85,7 +85,7 @@ onMounted(() => {
     p {
       color: map-get($colors, sub-black);
       letter-spacing: -1.2px;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin-top: 50px;
       line-height: 1.6;
       padding-left: 10px;
